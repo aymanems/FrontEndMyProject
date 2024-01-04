@@ -9,23 +9,23 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate=useNavigate()
 
-  const handleLogin = (e) => {
+  const handleLogin =async (e) => {
     e.preventDefault()
     try {
         if (email.trim() && password.trim() && email.match(/^\S+@\S+\.\S+$/))
     {
-        const response =axios.post('http://127.0.0.1:8000/api/administrator-tcheck-login',{
+        const response =await axios.post('http://127.0.0.1:8000/api/tcheckLogin',{
           'email':email,
           'password':password
         })  
-
+        console.log(response.data.message);
         if (response.data.message=='true') {
+          navigate('/page', { state: { bool: true } });
         }
     }
     else 
     {
         alert('Remplissez tous les champs')
-        navigate('/page', { state: { bool: true } });
     }
         
     } catch (error) {
