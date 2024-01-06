@@ -1,19 +1,24 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import Nav from '../layout/nav'
 import '../css/page.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import {AuthContext} from '../privateRoute/AuthProvider'
+import { Navigate } from 'react-router-dom';
+
 function Page() {
+  
+  const navigate=useNavigate()
   const sidebarRef = useRef(null);
   const toggleRef = useRef(null);
-
+  const {authStatus} = useContext(AuthContext);
   useEffect(() => {
-    // Accessing the current property of the refs to get the actual DOM elements
-    // const body = bodyRef.current;
     const sidebar = sidebarRef.current;
     const toggle = toggleRef.current;
-    // const searchBtn = searchBtnRef.current;
-    // const modeSwitch = modeSwitchRef.current;
-    // const modeText = modeTextRef.current;
+    if (!authStatus) {
+      navigate('/')
+    }
+
+
 
     if (toggle) {
       toggle.addEventListener('click', () => {

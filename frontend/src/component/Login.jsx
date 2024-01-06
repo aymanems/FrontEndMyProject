@@ -1,13 +1,16 @@
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import '../css/login.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
+import {AuthContext} from '../privateRoute/AuthProvider'
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate=useNavigate()
+  const { authStatus, setAuthStatus } = useContext(AuthContext);
+  
 
   const handleLogin =async (e) => {
     e.preventDefault()
@@ -18,9 +21,12 @@ const Login = () => {
           'email':email,
           'password':password
         })  
-        console.log(response.data.message);
-        if (response.data.message=='true') {
-          navigate('/page', { state: { bool: true } });
+        // console.log(response.data.message);
+        if (response.data.message=='true') 
+        {
+          setAuthStatus(true);
+          navigate('/page');
+          console.log(authStatus);
         }
     }
     else 
@@ -34,8 +40,7 @@ const Login = () => {
   };
 
   return (
-    <div className="auth-container">
-      <form action="">
+    <form className="auth-container" action="">
             <div className="login-form">
                 <h2>Connexion</h2>
                 <input type="email" placeholder="Votre email"  value={email}  onChange={(e) => setEmail(e.target.value)}/>
@@ -43,8 +48,6 @@ const Login = () => {
             <button type='submit' onClick={handleLogin}>Se connecter</button>
              </div>
       </form>
-     
-    </div>
   );
 };
 

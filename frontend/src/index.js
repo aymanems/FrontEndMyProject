@@ -6,15 +6,18 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import reportWebVitals from './reportWebVitals';
 import Page from './component/Page';
 import 'boxicons/css/boxicons.min.css';
+import { AuthProvider } from './privateRoute/AuthProvider';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/page' element={<Page/>} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/page' element={<Page/>} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
 );
 
