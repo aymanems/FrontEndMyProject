@@ -1,32 +1,35 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import React, {  useEffect, useRef, useState } from 'react'
 import Nav from '../layout/nav'
 import '../css/page.css'
-import { Link, useNavigate } from 'react-router-dom'
-import {AuthContext} from '../privateRoute/AuthProvider'
-import { Navigate } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom'
 
 function Page() {
   
   const navigate=useNavigate()
   const sidebarRef = useRef(null);
   const toggleRef = useRef(null);
-  const {authStatus} = useContext(AuthContext);
+
   useEffect(() => {
     const sidebar = sidebarRef.current;
-    const toggle = toggleRef.current;
-    if (!authStatus) {
+
+    if (!localStorage.getItem('authStatus')) {
       navigate('/')
     }
+    },[])
+
+    
+
+    const Logout = () => {
+      
+      localStorage.removeItem('authStatus');
+      navigate('/')
+    };
 
 
 
-    if (toggle) {
-      toggle.addEventListener('click', () => {
-        sidebar.classList.toggle('close');
-      });
-    }},[])
+
 return (
-    <div>
+    <div className='element'>
       <div className="nav">
 
       <Nav />
@@ -48,7 +51,6 @@ return (
             </div>
           </div>
 
-          <i class='bx bx-chevron-right toggle'  ref={toggleRef}></i>
         </header>
 
         <div className="menu-bar">
@@ -103,11 +105,15 @@ return (
 
           <div className="buttom-content">
               <li className="">
-                <Link className='lien' to={'/page'}>
+                  <button className='lien' onClick={Logout}>
                   <i class='bx bx-log-out icon'></i>
                   <span className="text nav-text">Logout</span>
-                </Link>
+                  </button>
               </li>
+              <li>
+ {/* */}
+</li>
+
 
 
               
@@ -118,54 +124,10 @@ return (
 
 
 
-   <div className='content' >
-
-   <div
-    class="table-responsive"
-   >
-    <table
-      class="table table-primary"
-    >
-      <thead>
-        <tr>
-          <th scope="col">Column 1</th>
-          <th scope="col">Column 2</th>
-          <th scope="col">Column 3</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="">
-          <td scope="row">R1C1</td>
-          <td>R1C2</td>
-          <td>R1C3</td>
-        </tr>
-        <tr class="">
-          <td scope="row">Item</td>
-          <td>Item</td>
-          <td>Item</td>
-        </tr>
-        <tr class="">
-          <td scope="row">Item</td>
-          <td>Item</td>
-          <td>Item</td>
-        </tr>
-        <tr class="">
-          <td scope="row">Item</td>
-          <td>Item</td>
-          <td>Item</td>
-        </tr>
-        <tr class="">
-          <td scope="row">Item</td>
-          <td>Item</td>
-          <td>Item</td>
-        </tr>
-      </tbody>
-    </table>
-   </div>
+   <div className='content'>
    
+ </div>
 
-
-   </div>
    
 
 
