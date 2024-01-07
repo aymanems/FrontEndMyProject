@@ -1,6 +1,5 @@
 import React from 'react'
 import Nav from './layout/nav';
-import Page from './component/Page';
 import './App.css'
 import Profile from './component/Profile';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';

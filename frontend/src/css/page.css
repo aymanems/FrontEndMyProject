@@ -53,6 +53,7 @@ container{
     color:  var(--text-color);
     transition: var(--tran-03);
     white-space: nowrap;
+    cursor:default;
     opacity: 1;
 }
 
@@ -147,7 +148,7 @@ color: var(--sidebar-color);
     justify-content: space-between;
 }
 .content{
-    margin-top: 10px;
+    margin-top: 40px;
     margin-left:85px;
 }
 

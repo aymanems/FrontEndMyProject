@@ -3,11 +3,14 @@ import '../css/nav.css'
 import'../css/page.css'
 import { Link, useNavigate,Route,Routes  } from 'react-router-dom'
 import Profile from '../component/Profile';
+import Notification from './../component/Notification';
+import Personnelle from './../component/Personnelle';
 function Nav() {
 
   const navigate=useNavigate()
   const sidebarRef = useRef(null);
   const toggleRef = useRef(null);
+  const [section,setSection]=useState('')
 
   useEffect(() => {
     const sidebar = sidebarRef.current;
@@ -15,6 +18,12 @@ function Nav() {
     if (!localStorage.getItem('authStatus')) {
       navigate('/')
     }
+
+    localStorage.removeItem('Notification')
+    localStorage.removeItem('personnelle')
+    localStorage.removeItem('Profile') 
+
+
     },[])
 
     
@@ -24,7 +33,7 @@ function Nav() {
       localStorage.removeItem('authStatus');
       navigate('/')
     };
-  
+
   return (
   <div>
         <nav className="navbar">
@@ -65,47 +74,42 @@ function Nav() {
           <div className="menu-bar">
             <div className="menu">
               <li className="search-box" >
-              <i class='bx bx-search icon'></i>
+              <i className='bx bx-search icon'></i>
                   <input type="search" placeholder='Search...' name="" id="" />
               </li>
               <ul className="menu-links">
   
               
-                <li className="nav-link">
-                  <Link className='lien' to={'/page'}>
-                  <i class='bx bx-home icon'></i>
+               
+
+
+                
+                <li className="">
+                  <div type='submit' className='lien'>
+                  <i className='bx bx-home icon'></i>
                   <span className="text nav-text">Home</span>
-                  </Link>
+                  </div>
                 </li>
-                <li className="nav-link">
-                  <Link className='lien' to={'/page'}>
-                  <i class='bx bx-bell icon'></i>
+
+                <li className="">
+                  <div className='lien' onClick={()=>{setSection('Notification')}}>
+                  <i className='bx bx-bell icon'></i>
                   <span className="text nav-text">Notification</span>
-                  </Link>
+                  </div>
                 </li>
-                <li className="nav-link">
-                  <Link className='lien' to={'/page'}>
-                  <i class='bx bx-home icon'></i>
-                  <span className="text nav-text">Home</span>
-                  </Link>
-                </li>
-                <li className="nav-link">
-                  <Link className='lien' to={'/page'}>
-                  <i class='bx bx-home icon'></i>
-                  <span className="text nav-text">Home</span>
-                  </Link>
-                </li>
-                <li className="nav-link">
-                  <Link className='lien' to={'/page'}>
-                  <i class='bx bxs-file-find icon'></i>
+
+                <li className="">
+                  <div className='lien' onClick={()=>{setSection('personnelle')}}>
+                  <i className='bx bxs-file-find icon'></i>
                   <span className="text nav-text">Les I personnelle</span>
-                  </Link>
+                  </div>
                 </li>
-                <li className="nav-link">
-                  <Link className='lien' to={'/profile'}>
-                  <i class='bx bx-user icon'></i>
+
+                <li className="">
+                  <div className='lien' onClick={()=>{setSection('Profile')}}>
+                  <i className='bx bx-home icon'></i>
                   <span className="text nav-text">Profile</span>
-                  </Link>
+                  </div>
                 </li>
   
   
@@ -115,7 +119,7 @@ function Nav() {
             <div className="buttom-content">
                 <li className="">
                     <button className='lien' onClick={Logout}>
-                    <i class='bx bx-log-out icon'></i>
+                    <i className='bx bx-log-out icon'></i>
                     <span className="text nav-text">Logout</span>
                     </button>
                 </li>
@@ -133,17 +137,49 @@ function Nav() {
 
 
 
-     <div className="content">
+    <div className="content">
      
+        
+
+
+        {section === 'Profile' && localStorage.getItem('Profile') === null ? (
+          <div>
+            <Profile />
+            {localStorage.setItem('Profile', 'true')}
+            {localStorage.removeItem('personnelle') }
+            {localStorage.removeItem('Notification') }
+          </div>
+        ) : null} 
+
+
+        {section === 'personnelle' && localStorage.getItem('personnelle') === null ? (
+          <div>
+            <Personnelle />
+            {localStorage.setItem('personnelle', 'true')}
+            {localStorage.removeItem('Profile') }
+            {localStorage.removeItem('Notification') }
+          </div>
+        ) : null} 
+
+
+        {section === 'Notification' && localStorage.getItem('Notification') === null ? (
+          <div>
+            <Notification />
+            {localStorage.setItem('Notification', 'true')}
+            {localStorage.removeItem('personnelle') }
+            {localStorage.removeItem('Profile') }
+          </div>
+        ) : null} 
+    
+    
+    </div>
+
+
+
+
      
-     </div>
-
-
-
-
 
   </div>
-
 
     
 

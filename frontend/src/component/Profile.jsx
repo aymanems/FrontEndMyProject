@@ -4,7 +4,6 @@ import Nav from '../layout/nav'
 function Profile() {
   return (
     <div>
-    <Nav/>
     
     <div className='content'>
 

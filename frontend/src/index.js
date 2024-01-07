@@ -4,7 +4,6 @@ import './index.css';
 import Login from './component/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import reportWebVitals from './reportWebVitals';
-import Page from './component/Page';
 import 'boxicons/css/boxicons.min.css';
 // import { AuthProvider } from './privateRoute/AuthProvider';
 import App from './App';
