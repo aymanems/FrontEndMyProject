@@ -22,12 +22,7 @@
         --tran-05:all 0.4s ease;
 
 }
-.nav{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
+
 container{
     height: 100vh;
     background-color: red;
@@ -41,7 +36,7 @@ container{
 .sidebar{
     z-index: 0;
     position: fixed;
-    top:66px ;
+    top:45px ;
     left: 0;
     height: 100%;
     width: 250px;
@@ -152,8 +147,8 @@ color: var(--sidebar-color);
     justify-content: space-between;
 }
 .content{
-    margin-top: 80px;
-    margin-left: 270px;
+    margin-top: 10px;
+    margin-left:85px;
 }
 
 

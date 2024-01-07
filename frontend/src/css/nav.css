@@ -2,11 +2,16 @@
     background-color: #9AD0C2;
     color: #fff;
     padding: 10px 0;
+    height: 40px;
+    width: 1300px;
+    position: fixed;
+    right: 0px;
+    top: 0;
   }
   
   .navbar-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -14,6 +19,9 @@
   
   .navbar-left {
     display: flex;
+    margin-top: -5px;
+    justify-content: space-between;
+    width: 550px;
   }
   
   .navbar-left a {
@@ -23,7 +31,12 @@
   }
   
   .navbar-right img {
-    max-height: 40px;
+    max-height: 30px;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    border-radius: 6px;
+
   }
   
 

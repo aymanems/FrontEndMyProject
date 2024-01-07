@@ -7,16 +7,15 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Page from './component/Page';
 import 'boxicons/css/boxicons.min.css';
 // import { AuthProvider } from './privateRoute/AuthProvider';
+import App from './App';
+import Nav from './layout/nav';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/page' element={<Page/>} />
-        </Routes>
-    </BrowserRouter>
+        <App/>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

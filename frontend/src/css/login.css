@@ -8,6 +8,7 @@
   
   .login-form {
     border: 1px solid #ccc;
+    width: 500px;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
@@ -66,3 +67,18 @@
     }
    
     }
+
+
+    .password-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    
+    .eye-icon {
+      position: absolute;
+      top: 40%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    

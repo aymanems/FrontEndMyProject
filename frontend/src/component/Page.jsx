@@ -1,7 +1,8 @@
 import React, {  useEffect, useRef, useState } from 'react'
 import Nav from '../layout/nav'
 import '../css/page.css'
-import { Link, useNavigate  } from 'react-router-dom'
+import { Link, useNavigate,Route,Routes  } from 'react-router-dom'
+import Profile from './Profile';
 
 function Page() {
   
@@ -30,11 +31,7 @@ function Page() {
 
 return (
     <div className='element'>
-      <div className="nav">
-
-      <Nav />
       
-      </div>
 
    <container   >
       <nav className="sidebar close" ref={sidebarRef}>
@@ -93,7 +90,7 @@ return (
                 </Link>
               </li>
               <li className="nav-link">
-                <Link className='lien' to={'/page'}>
+                <Link className='lien' to={'/profile'}>
                 <i class='bx bx-user icon'></i>
                 <span className="text nav-text">Profile</span>
                 </Link>
@@ -124,9 +121,13 @@ return (
 
 
 
-   <div className='content'>
+  {/* <div className='content'>
+
+      <Routes>
+      <Route path='/profile' element={<Profile/>} />
+      </Routes>
    
- </div>
+</div>*/}
 
    
 
