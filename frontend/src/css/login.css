@@ -40,7 +40,7 @@
     background-color: #1eb4ad;
     color: #FFF;
   }
-  h1{
+  .textLogin{
     position: relative;
     top: 70px;
     font-size: 6em;
@@ -56,7 +56,7 @@
   }
   @media screen and (max-width: 600px)  {
  
-    h1{
+    .textLogin{
       position: relative;
       top: 80px;
       left: 10px;

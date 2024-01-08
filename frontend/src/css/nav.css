@@ -23,6 +23,13 @@
     justify-content: space-between;
     width: 550px;
   }
+  .btnHover{
+    text-align: center;
+    width: 80px;
+  }
+  .btnHover:hover{
+    font-size: 20px;
+  }
   
   .navbar-left a {
     color: #fff;

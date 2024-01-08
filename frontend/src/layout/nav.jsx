@@ -8,7 +8,7 @@ import Personnelle from './../component/Personnelle';
 function Nav() {
 
   const navigate=useNavigate()
-  const [section,setSection]=useState('')
+  const [section,setSection]=useState('Home')
 
   useEffect(() => {
 
@@ -21,8 +21,24 @@ function Nav() {
     
 
     const Logout = () => {
-      
+      //Supprimer tous les cookies
       localStorage.removeItem('authStatus');
+      localStorage.removeItem('email')
+      localStorage.removeItem('nom')
+      localStorage.removeItem('prenom')
+      localStorage.removeItem('cin')
+      localStorage.removeItem('phone')
+      localStorage.removeItem('amountpay')
+      localStorage.removeItem('cost')
+      localStorage.removeItem('country')
+      localStorage.removeItem('dateofbirth')
+      localStorage.removeItem('enddate')
+      localStorage.removeItem('level')
+      localStorage.removeItem('integrationdate')
+      localStorage.removeItem('registration')
+      localStorage.removeItem('speciality')
+      localStorage.removeItem('statut')
+      localStorage.removeItem('university')
       navigate('/')
     };
 
@@ -34,9 +50,9 @@ function Nav() {
         </div>
           <div className="navbar-container">
             <div  iv className="navbar-left">
-              <Link to="/page">Home</Link>
-              <Link to="/about">About</Link>
-              <Link to="/contact">Contact</Link>
+              <Link className='btnHover' to="/page">Home</Link>
+              <Link className='btnHover' to="/about">About</Link>
+              <Link className='btnHover' to="/contact">Contact</Link>
             </div>
           </div>
         </nav>

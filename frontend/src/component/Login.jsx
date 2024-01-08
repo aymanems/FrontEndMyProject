@@ -24,11 +24,31 @@ const Login = () => {
           'email':email,
           'password':password
         })  
+        console.log(response.data.students);
         console.log(response.data.message);
         if (response.data.message=='true') 
         {
-          navigate('/page');
+          //S'il est authentifié, je le mets à true
           localStorage.setItem('authStatus', 'true');
+
+          //Informations sur qui a été authentifié
+          localStorage.setItem('email', response.data.students[0].user.email);
+          localStorage.setItem('nom', response.data.students[0].user.name);
+          localStorage.setItem('prenom', response.data.students[0].familyname);
+          localStorage.setItem('cin', response.data.students[0].cin);
+          localStorage.setItem('phone', response.data.students[0].phone);
+          localStorage.setItem('amountpay', response.data.students[0].amountpay);
+          localStorage.setItem('cost', response.data.students[0].cost);
+          localStorage.setItem('country', response.data.students[0].country);
+          localStorage.setItem('dateofbirth', response.data.students[0].dateofbirth);
+          localStorage.setItem('enddate', response.data.students[0].enddate);
+          localStorage.setItem('level', response.data.students[0].level);
+          localStorage.setItem('integrationdate', response.data.students[0].integrationdate);
+          localStorage.setItem('registration', response.data.students[0].registration);
+          localStorage.setItem('speciality', response.data.students[0].speciality);
+          localStorage.setItem('statut', response.data.students[0].statut);
+          localStorage.setItem('university', response.data.students[0].university);
+          navigate('/page');
         }else if (response.data.message=='falsere'){
           
           alert('il y aune erreur dans les champs')
@@ -46,7 +66,7 @@ const Login = () => {
 
   return (
    <div>
-      <h1 contentEditable='true'>Arizona</h1>
+      <h1 className='textLogin' contentEditable='true'>Arizona</h1>
       <form className="auth-container" action="">
           <div className="login-form">
             <h2>Connexion</h2>
