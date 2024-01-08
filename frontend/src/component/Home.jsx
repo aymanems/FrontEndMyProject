@@ -109,7 +109,10 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <br /><br /><br />
+      <br />
+      <br />
+      <br />
+      <h1 className="text-center">Votre Informations</h1>
     </>
   );
 }
