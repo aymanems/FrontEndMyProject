@@ -5,7 +5,7 @@ function Profile() {
   return (
     <div>
     
-    <div className='content'>
+    <div >
 
         Profile
   

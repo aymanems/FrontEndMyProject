@@ -4,6 +4,8 @@ import './App.css'
 import Profile from './component/Profile';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Login from './component/Login';
+import About from './component/About';
+import Contact from './component/Contact';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
     <Routes>
       <Route path='/' element={<Login />} />
       <Route path='/page' element={<Nav />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/contact' element={<Contact />} />
 
     </Routes>
   </div>

@@ -8,21 +8,13 @@ import Personnelle from './../component/Personnelle';
 function Nav() {
 
   const navigate=useNavigate()
-  const sidebarRef = useRef(null);
-  const toggleRef = useRef(null);
   const [section,setSection]=useState('')
 
   useEffect(() => {
-    const sidebar = sidebarRef.current;
 
     if (!localStorage.getItem('authStatus')) {
       navigate('/')
     }
-
-    localStorage.removeItem('Notification')
-    localStorage.removeItem('personnelle')
-    localStorage.removeItem('Profile') 
-
 
     },[])
 
@@ -37,15 +29,14 @@ function Nav() {
   return (
   <div>
         <nav className="navbar">
+        <div className="navbar-right">
+          <img src="/image/logo.jpg" alt="Logo"  className="navbar-logo" />
+        </div>
           <div className="navbar-container">
             <div  iv className="navbar-left">
               <Link to="/page">Home</Link>
               <Link to="/about">About</Link>
-              <Link to="/services">Services</Link>
               <Link to="/contact">Contact</Link>
-            </div>
-            <div className="navbar-right">
-              <img src="/image/logo.jpg" alt="Logo"  className="navbar-logo" />
             </div>
           </div>
         </nav>
@@ -55,7 +46,7 @@ function Nav() {
 
 
         <container   >
-        <nav className="sidebar close" ref={sidebarRef}>
+        <nav className="sidebar close" >
           <header>
             <div className="image-text">
               <span className="image">
@@ -64,7 +55,6 @@ function Nav() {
   
               <div className="text header-text">
                 <span className="name"> Arizona </span>
-                {/*<span className="profession"> web devlopper </span>*/}
   
               </div>
             </div>
@@ -72,7 +62,7 @@ function Nav() {
           </header>
   
           <div className="menu-bar">
-            <div className="menu">
+            <div className="menu" >
               <li className="search-box" >
               <i className='bx bx-search icon'></i>
                   <input type="search" placeholder='Search...' name="" id="" />
@@ -85,7 +75,7 @@ function Nav() {
 
                 
                 <li className="">
-                  <div type='submit' className='lien'>
+                  <div  className='lien' onClick={()=>{setSection('Home')}}>
                   <i className='bx bx-home icon'></i>
                   <span className="text nav-text">Home</span>
                   </div>
@@ -124,8 +114,8 @@ function Nav() {
                     </button>
                 </li>
                 <li>
-   {/* */}
-  </li>
+          {/* */}
+          </li>
   
   
   
@@ -137,39 +127,39 @@ function Nav() {
 
 
 
-    <div className="content">
+    
      
         
 
 
-        {section === 'Profile' && localStorage.getItem('Profile') === null ? (
-          <div>
+        {section === 'Home'  ? (
+          <div className='content'>
+          home
+          </div>
+        ) : null} 
+
+
+        {section === 'Profile'  ? (
+          <div className='content'>
             <Profile />
-            {localStorage.setItem('Profile', 'true')}
-            {localStorage.removeItem('personnelle') }
-            {localStorage.removeItem('Notification') }
           </div>
         ) : null} 
 
 
-        {section === 'personnelle' && localStorage.getItem('personnelle') === null ? (
-          <div>
+        {section === 'personnelle'  ? (
+          <div className='content'>
             <Personnelle />
-            {localStorage.setItem('personnelle', 'true')}
-            {localStorage.removeItem('Profile') }
-            {localStorage.removeItem('Notification') }
           </div>
         ) : null} 
 
 
-        {section === 'Notification' && localStorage.getItem('Notification') === null ? (
-          <div>
+        {section === 'Notification'? (
+          <div className='content'>
             <Notification />
-            {localStorage.setItem('Notification', 'true')}
-            {localStorage.removeItem('personnelle') }
-            {localStorage.removeItem('Profile') }
           </div>
         ) : null} 
+
+        
     
     
     </div>
@@ -179,7 +169,7 @@ function Nav() {
 
      
 
-  </div>
+  
 
     
 
