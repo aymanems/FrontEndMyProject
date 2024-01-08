@@ -5,6 +5,7 @@ import { Link, useNavigate,Route,Routes  } from 'react-router-dom'
 import Profile from '../component/Profile';
 import Notification from './../component/Notification';
 import Personnelle from './../component/Personnelle';
+
 function Nav() {
 
   const navigate=useNavigate()
@@ -92,8 +93,8 @@ function Nav() {
                 
                 <li className="">
                   <div  className='lien' onClick={()=>{setSection('Home')}}>
-                  <i className='bx bx-home icon'></i>
-                  <span className="text nav-text">Home</span>
+                    <i className='bx bx-home icon'></i>
+                    <span className="text nav-text"></span>
                   </div>
                 </li>
 
@@ -150,7 +151,7 @@ function Nav() {
 
         {section === 'Home'  ? (
           <div className='content'>
-          home
+          
           </div>
         ) : null} 
 
