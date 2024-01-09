@@ -1,6 +1,153 @@
 .textProfile{
-    background: rgb(154,179,208);
-    background: linear-gradient(90deg, rgba(154,179,208,1) 3%, rgba(154,208,194,0.7989320728291316) 50%, rgba(208,207,154,1) 89%);
-    text-align: center;
-    width: 100%;
+display: flex;
+/* background: rgb(154,203,208);
+background: linear-gradient(90deg, rgba(154,203,208,1) 0%, rgba(154,208,194,0.7989320728291316) 47%, rgba(156,208,154,1) 100%); */
+width: 200px ;
+/* position: fixed; */
+/* top: 60px;
+left: 500px ; */
+/* align-items: center;
+justify-content:space-around; */
+color: #707070;
+font-size: 9px;
+margin-left: 27px;
+
+
 }
+.photoProfile{
+  text-align: center;
+    /* position: fixed; */
+    width: 250px;
+    height: 602px;
+    background-color: #E5E8E8 ;
+    color:#707070 ;
+}
+.pictureProfile{
+    padding-top: 20px;
+    margin-left: -25px;
+    margin-bottom: 20px;
+}
+
+.custom-file-input-label-Profile {
+    position: relative;
+    /* margin-left: 30px; */
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #AEB6BF ;
+    box-shadow:5px 5px 5px #AEB6BF;
+    color: #707070;
+
+    border: 1px solid #AEB6BF ;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-file-input-Profile {
+    display: none;
+  }
+  
+  .custom-file-input-label-Profile:hover {
+    background-color: #9AD0C2;
+    color: #E4E9F7;
+    box-shadow:5px 5px 5px #9AD0C2;
+
+  }
+  
+  
+  .loaderProfile {
+    width: 215px;
+    height: 215px;
+    display: block;
+    margin: auto;
+    position: relative;
+    background: #FFF;
+    box-sizing: border-box;
+  }
+  .loaderProfile::after {
+    content: '';
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    top: 15px;
+    left: 15px;
+    position: absolute;
+    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5) 50%, transparent 100%),
+     radial-gradient(circle 50px , #DDD 100%, transparent 0),
+     linear-gradient(#DDD 16px, transparent 0),
+     linear-gradient(#DDD 24px, transparent 0);
+    background-repeat: no-repeat;
+    background-size: 75px 175px, 100% 100px, 80% 16px, 80% 16px;
+    background-position: -185px 0, center 10px, center 125px, center 155px;
+    box-sizing: border-box;
+    animation: animloader 1s linear infinite;
+  }
+  
+  @keyframes animloader {
+    to {
+      background-position: 185px 0, center 10px, center 125px, center 155px;
+    }
+  }
+
+  .cardProfile{
+    display: flex;
+  }
+    
+
+/* *************************************** */
+  .profile-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group-profile {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .label-form {
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .input-profile {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .button-profile {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-profile:hover {
+    background-color: #45a049;
+  }
+  
+  .eye-icon-profile {
+    position: absolute;
+    top: 60%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }

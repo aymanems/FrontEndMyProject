@@ -5,6 +5,7 @@ import { Link, useNavigate,Route,Routes  } from 'react-router-dom'
 import Profile from '../component/Profile';
 import Notification from './../component/Notification';
 import Personnelle from './../component/Personnelle';
+import Home from '../component/Home';
 
 function Nav() {
 
@@ -24,6 +25,7 @@ function Nav() {
     const Logout = () => {
       //Supprimer tous les cookies
       localStorage.removeItem('authStatus');
+      localStorage.removeItem('id');
       localStorage.removeItem('email')
       localStorage.removeItem('nom')
       localStorage.removeItem('prenom')
@@ -94,7 +96,7 @@ function Nav() {
                 <li className="">
                   <div  className='lien' onClick={()=>{setSection('Home')}}>
                     <i className='bx bx-home icon'></i>
-                    <span className="text nav-text"></span>
+                    <span className="text nav-text">Home</span>
                   </div>
                 </li>
 
@@ -114,7 +116,7 @@ function Nav() {
 
                 <li className="">
                   <div className='lien' onClick={()=>{setSection('Profile')}}>
-                  <i className='bx bx-home icon'></i>
+                  <i className='bx bxs-face icon'></i>
                   <span className="text nav-text">Profile</span>
                   </div>
                 </li>
@@ -151,7 +153,7 @@ function Nav() {
 
         {section === 'Home'  ? (
           <div className='content'>
-          
+              <Home/>
           </div>
         ) : null} 
 

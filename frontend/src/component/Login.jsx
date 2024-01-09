@@ -33,6 +33,7 @@ const Login = () => {
 
           //Informations sur qui a été authentifié
           localStorage.setItem('email', response.data.students[0].user.email);
+          localStorage.setItem('id', response.data.students[0].user.id);
           localStorage.setItem('nom', response.data.students[0].user.name);
           localStorage.setItem('prenom', response.data.students[0].familyname);
           localStorage.setItem('cin', response.data.students[0].cin);
@@ -48,6 +49,7 @@ const Login = () => {
           localStorage.setItem('speciality', response.data.students[0].speciality);
           localStorage.setItem('statut', response.data.students[0].statut);
           localStorage.setItem('university', response.data.students[0].university);
+          console.log(localStorage.getItem('id'));
           navigate('/page');
         }else if (response.data.message=='falsere'){
           

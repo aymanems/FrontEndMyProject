@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Login from './component/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import reportWebVitals from './reportWebVitals';
 import 'boxicons/css/boxicons.min.css';
 // import { AuthProvider } from './privateRoute/AuthProvider';
 import App from './App';
-import Nav from './layout/nav';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -168,6 +168,11 @@ color: var(--sidebar-color);
 .sidebar .text{
     opacity: 0;
 } 
+.content{
+margin-top: 40px;
+margin-left:5px;
+}
+
 }
 
 

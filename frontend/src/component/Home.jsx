@@ -1,9 +1,9 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Home() {
   return (
-    <>
+    <div>
       <div id="carouselExampleIndicators" className="carousel slide">
         <div className="carousel-indicators">
           <button
@@ -113,6 +113,6 @@ export default function Home() {
       <br />
       <br />
       <h1 className="text-center">Votre Informations</h1>
-    </>
+    </div>
   );
 }
