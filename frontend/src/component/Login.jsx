@@ -68,7 +68,7 @@ const Login = () => {
 
   return (
    <div>
-      <h1 className='textLogin' contentEditable='true'>Arizona</h1>
+      <h1 className='textLogin' contentEditable='true'>Ofppt</h1>
       <form className="auth-container" action="">
           <div className="login-form">
             <h2>Connexion</h2>
@@ -84,6 +84,7 @@ const Login = () => {
               </span>
             </div>
             <button type='submit' onClick={handleLogin}>Se connecter</button>
+           
           </div>
       </form>
    </div>

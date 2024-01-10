@@ -73,7 +73,7 @@ function Nav() {
               </span>
   
               <div className="text header-text">
-                <span className="name"> Arizona </span>
+                <span className="name"> Ofppt </span>
   
               </div>
             </div>

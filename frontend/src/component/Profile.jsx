@@ -9,10 +9,12 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 function Profile() {
   const [profileImage, setProfileImage] = useState(null);
   const [formPass, setFormPass] = useState({
-    email: '',
     currentPassword: '',
     newPassword: '',
   });
+  const [error,setError]=useState([]);
+  const [confPass,setConfPass]=useState()
+  console.log(formPass);
   const id=localStorage.getItem('id')
 
   const axiosProfileImage = async () => {
@@ -68,26 +70,62 @@ function Profile() {
     return texteAvecPremiereLettreMajuscule
   }
 
-
+  // ***********gerer l'error  ****************
   const handleChange = (e) => {
-    setFormPass({ ...formPass, [e.target.name]: e.target.value });
+    setFormPass({ ...formPass, [e.target.name]: e.target.value.trim() });
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your logic to handle form submission (e.g., API call)
-    console.log('Form submitted:', formPass);
-    // Reset form fields after submission if needed
-    setFormPass({
-      email: '',
-      currentPassword: '',
-      newPassword: '',
-    });
-  };
+ 
   const togglePasswordVisibility = () => {
     setFormPass({ ...formPass, showPassword: !formPass.showPassword });
   };
+
+  const changePassword= async (e)=>{
+    e.preventDefault()
+    if (formPass.newPassword.trim() && formPass.currentPassword.trim() && confPass==formPass.newPassword) {
+      const response=await axios.post(`http://127.0.0.1:8000/api/student/profile/changePass/${id}`,formPass)
+      console.log(response.data.message);
+      setFormPass({
+        currentPassword: '',
+        newPassword: '',
+      });
+    }else{
+      handelPass(e)
+    }
+  }
+
+  const handelPass=(e)=>{
+    document.getElementById('newPassword').style.boxShadow = 'none';
+    document.getElementById('currentPassword').style.boxShadow = 'none';
+    document.getElementById('confirmPassword').style.boxShadow = 'none';
+    setError([])
+
+    if ( !formPass.newPassword || !formPass.newPassword.trim() ) {
+      setError((preventErr)=>[...error,{name:'newPassword',field:'Veuillez remplir le champ du nouveau mot de passe !!'}])
+      document.getElementById('newPassword').style.boxShadow = '0 0 5px 1px red';
+    }
+
+    if (  !formPass.currentPassword || !formPass.currentPassword.trim()) {
+      document.getElementById('currentPassword').style.boxShadow = '0 0 5px 1px red';
+       setError((preventErr)=>[...error,{name:'currentPassword',field:'Veuillez remplir le champ du mot de passe actuel !!'}])
+    }
+    if ( !confPass || !confPass.trim()) {
+      document.getElementById('confirmPassword').style.boxShadow = '0 0 5px 1px red';
+       setError((preventErr)=>[...error,{name:'confirmPassword',field:'Veuillez remplir le champ du mot de passe de confirmation. !!'}])
+    }
+  }
+
+
+  const gestionError=(name)=>{
+    const erreur=error.find((ele)=>name==ele.field)
+    if (erreur!==undefined && name!=='acceptCondition') {
+      return <span >field required</span>
+    }
+
+  }
+  console.log(formPass.newPassword);
 return (
   <div  className="cardProfile" >
+  <img className='imgProfile'  src="/image/profile.jpg" alt="" srcset="" />
 
     <div className='photoProfile'>
         <div className='pictureProfile' >
@@ -110,29 +148,37 @@ return (
 
 
     <div className="profile-form-container">
-    <h1 style={{fontSize:'20px',textAlign:'center'}}>Changez votre mot de passe</h1><br />
-      <form onSubmit={handleSubmit} className="profile-form">
-        <div className="form-group-profile">
-          <label className='label-form' htmlFor="email">Email:</label>
-          <input className='input-profile' type="email" name="email"  value={formPass.email} onChange={handleChange} required />
-        </div>
+    <h1 style={{fontSize:'20px',textAlign:'center'}}>Changez votre mot de passe</h1>
+    <center><small >Sans espace entre les mots</small></center>    <br />
+      <form className="profile-form">
 
         <div className="form-group-profile">
           <label className='label-form' htmlFor="currentPassword">Current Password:</label>
-          <input className='input-profile' type={formPass.showPassword ? 'text' : 'password'}  name="currentPassword" value={formPass.currentPassword} onChange={handleChange} required  />
+          <input className='input-profile' type={formPass.showPassword ? 'text' : 'password'}  name="currentPassword" id='currentPassword' value={formPass.currentPassword} onChange={(e)=>{handleChange(e)}} required  />
           <FontAwesomeIcon icon={formPass.showPassword ? faEye : faEyeSlash}  className="eye-icon-profile" onClick={togglePasswordVisibility} />
+          {gestionError('currentPassword')}
         </div>
 
         <div className="form-group-profile">
           <label className='label-form' htmlFor="newPassword">New Password:</label>
           <input
           className='input-profile'
-          type={formPass.showPassword ? 'text' : 'password'} name="newPassword" value={formPass.newPassword} onChange={handleChange} required />
+          type={formPass.showPassword ? 'text' : 'password'} name="newPassword" id='newPassword' value={formPass.newPassword} onChange={(e)=>{handleChange(e)}} required />
           <FontAwesomeIcon icon={formPass.showPassword ? faEye : faEyeSlash} className="eye-icon-profile" onClick={togglePasswordVisibility} />
+          {gestionError('newPassword')}
+        </div>
+
+        <div className="form-group-profile">
+          <label className='label-form' htmlFor="newPassword">confirm Password:</label>
+          <input
+          className='input-profile'
+          type={formPass.showPassword ? 'text' : 'password'} value={confPass} id='confirmPassword' onChange={(e)=>{setConfPass(e.target.value)}} required />
+          <FontAwesomeIcon icon={formPass.showPassword ? faEye : faEyeSlash} className="eye-icon-profile" onClick={togglePasswordVisibility} />
+          {gestionError('confirmPassword')}
         </div>
         
 
-        <button className='button-profile' type="submit">Update Profile</button>
+        <button className='button-profile' type="submit" onClick={changePassword}>Update Password</button>
       </form>
     </div>
     
