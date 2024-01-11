@@ -129,14 +129,14 @@ return (
 
     <div className='photoProfile'>
         <div className='pictureProfile' >
-        {profileImage && profileImage.length>29 ? <img src={profileImage} alt="Profil" style={{ width: '150px', height: '150px',borderRadius:'50%',marginLeft:'30px' }} /> : <span style={{ width: '150px', height: '150px',borderRadius:'50%',marginLeft:'30px' }} className="loaderProfile"></span>}
+        {profileImage && profileImage.length>29 ? <img src={profileImage} alt="Profil" /> : <span style={{ width: '150px', height: '150px',borderRadius:'50%',marginLeft:'30px',marginLeft:'auto' }} className="loaderProfile"></span>}
         </div>
         <div className="textProfile">
-          <h1 >{PremiereLettreMajuscule (localStorage.getItem('nom'))}  &ensp; {PremiereLettreMajuscule (localStorage.getItem('prenom'))}</h1> 
+          <h1 >{PremiereLettreMajuscule (localStorage.getItem('nom'))}   {PremiereLettreMajuscule (localStorage.getItem('prenom'))}</h1> 
         </div>
         <label className="custom-file-input-label-Profile">
             <input type="file" accept="image/*" onChange={handleImageChange} className="custom-file-input-Profile" />
-            Choose an image &ensp; <i style={{fontSize:'20px',position:'absolute',top:'14px',right:'1px'}} class='bx bx-image-add'></i>
+            <span>Choose an image</span> &ensp; <i  class='bx bx-image-add iconProfile'></i>
         </label><br /><br />
         <span><b>Cin </b>: {localStorage.getItem('cin')}</span><br /><br />
         <span><b>Email </b>: {localStorage.getItem('email')}</span><br /><br />
@@ -179,7 +179,10 @@ return (
         
 
         <button className='button-profile' type="submit" onClick={changePassword}>Update Password</button>
-      </form>
+      
+        </form>
+
+      
     </div>
     
 

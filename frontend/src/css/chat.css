@@ -1,0 +1,9 @@
+.chat{
+    position: fixed;
+    bottom: 20px;
+    width: 78%;
+    border: 1px solid #DDD;
+}
+.cardChat{
+    display: flex;
+}

@@ -11,7 +11,6 @@
     width: 500px;
     padding: 20px;
     border-radius: 8px;
-    text-align: center;
   }
   
   .logged-in {
@@ -34,6 +33,12 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+  }
+  .h2Login{
+    text-align: center;
+  }
+  .btnLogin{
+    margin-left: 40%;
   }
   
   button:hover {

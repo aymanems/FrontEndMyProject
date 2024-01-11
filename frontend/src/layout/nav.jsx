@@ -6,6 +6,7 @@ import Profile from '../component/Profile';
 import Notification from './../component/Notification';
 import Personnelle from './../component/Personnelle';
 import Home from '../component/Home';
+import Chat from './../component/Chat';
 
 function Nav() {
 
@@ -74,9 +75,10 @@ function Nav() {
   
               <div className="text header-text">
                 <span className="name"> Ofppt </span>
-  
-              </div>
-            </div>
+                
+                </div>
+                </div><br />
+                <hr /><br />
   
           </header>
   
@@ -118,6 +120,14 @@ function Nav() {
                   <div className='lien' onClick={()=>{setSection('Profile')}}>
                   <i className='bx bxs-face icon'></i>
                   <span className="text nav-text">Profile</span>
+                  </div>
+                </li>
+
+
+                <li>
+                  <div className='lien' onClick={()=>{setSection('Chat')}}>
+                  <i class='bx bx-message-dots icon'></i>
+                  <span className="text nav-text">Chat</span>
                   </div>
                 </li>
   
@@ -177,8 +187,13 @@ function Nav() {
             <Notification />
           </div>
         ) : null} 
-
         
+        
+        {section === 'Chat'? (
+          <div className='content'>
+            <Chat />
+          </div>
+        ) : null} 
     
     
     </div>

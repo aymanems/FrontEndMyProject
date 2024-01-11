@@ -143,9 +143,14 @@ color: var(--sidebar-color);
 
 .sidebar .menu-bar{
     height: calc(100% -50px);
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
-    justify-content: space-between;
+    justify-content:space-between;
+}
+.sidebar .menu-bar .buttom-content{
+    width: 223px;
+   position: fixed;
+   bottom: -30px;
 }
 .content{
     margin-top: 40px;
@@ -171,6 +176,14 @@ color: var(--sidebar-color);
 .content{
 margin-top: 40px;
 margin-left:5px;
+}
+.sidebar .menu-bar .buttom-content{
+    width: 10%;
+   position: fixed;
+   bottom: -30px;
+}
+.nav-text{
+    display: none;
 }
 
 }
