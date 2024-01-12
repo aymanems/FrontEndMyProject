@@ -59,6 +59,24 @@
     outline: none;
     animation: animate 5s linear infinite;
   }
+  .auth-container small{
+    position: relative;
+    top: -10px;
+    left: 10px;
+    color: red;
+  }
+  .password-container {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .eye-icon {
+    position: absolute;
+    top: 40%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
   @media screen and (max-width: 600px)  {
  
     .textLogin{
@@ -70,21 +88,13 @@
       justify-content: center;
 
     }
+    .eye-icon {
+      top: 60%;
+      right: -10px;
+    }
    
     }
 
 
-    .password-container {
-      position: relative;
-      margin-bottom: 20px;
-    }
-    
-    .eye-icon {
-      position: absolute;
-      top: 40%;
-      right: 10px;
-      transform: translateY(-50%);
-      cursor: pointer;
-    }
     
     

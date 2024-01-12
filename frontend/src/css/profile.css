@@ -234,7 +234,7 @@ background: linear-gradient(90deg, rgba(229,232,232,1) 37%, rgba(255,255,255,1) 
       display: none;
     }
     .photoProfile span{
-      font-size: 10px;
+      font-size: 8px;
     }
 
     .profile-form-container {

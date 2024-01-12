@@ -14,7 +14,6 @@ function Profile() {
   });
   const [error,setError]=useState([]);
   const [confPass,setConfPass]=useState()
-  console.log(formPass);
   const id=localStorage.getItem('id')
 
   const axiosProfileImage = async () => {
@@ -33,7 +32,6 @@ function Profile() {
     const formData = new FormData();
     formData.append('image', e.target.files[0]);
     
-    console.log(formData);
 
     try {
       const res=await axios.post(`http://127.0.0.1:8000/api/student/profile/image/${id}`, formData, {
