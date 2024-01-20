@@ -113,10 +113,10 @@ const displayError = (name) => {
 
   return (
    <div>
-      <h1 className='textLogin' contentEditable='true'>Ofppt</h1>
+      <h1 className='textLogin' contentEditable='true' >Ofppt</h1>
       <form className="auth-container" action="">
           <div className="login-form">
-            <h2 className='h2Login'>Connexion</h2>
+            <h2 className='h2Login' >Connexion</h2>
             <input type="email" placeholder="Votre email"  value={email} id='email'  onChange={(e) => setEmail(e.target.value)}/>
             <small>{displayError('email')}</small>  <small>{displayError('formatEmail')}</small>  <br /><br />
             <div className="password-container">

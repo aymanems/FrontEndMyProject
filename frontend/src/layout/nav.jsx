@@ -12,12 +12,20 @@ function Nav() {
 
   const navigate=useNavigate()
   const [section,setSection]=useState('Home')
+  const [messageArrived, setMessageArrived] = useState(false);
+
 
   useEffect(() => {
 
     if (!localStorage.getItem('authStatus')) {
       navigate('/')
     }
+
+    if (localStorage.getItem('messageArrived')=='true') {
+      setMessageArrived(true)
+    }
+
+   
 
     },[])
 
@@ -104,7 +112,10 @@ function Nav() {
 
                 <li className="">
                   <div className='lien' onClick={()=>{setSection('Notification')}}>
-                  <i className='bx bx-bell icon'></i>
+                  <div className={`notification-icon ${messageArrived ? 'message-arrived' : ''}`}>
+                    <i className='bx bx-bell icon'></i>
+                    {messageArrived && <div className='notification-dot'></div>}
+                  </div>
                   <span className="text nav-text">Notification</span>
                   </div>
                 </li>
@@ -170,7 +181,7 @@ function Nav() {
 
         {section === 'Profile'  ? (
           <div className='content'>
-            <Profile />
+            <Profile setMessageArrived={setMessageArrived} />
           </div>
         ) : null} 
 
@@ -184,7 +195,7 @@ function Nav() {
 
         {section === 'Notification'? (
           <div className='content'>
-            <Notification />
+            <Notification setMessageArrived={setMessageArrived} />
           </div>
         ) : null} 
         
