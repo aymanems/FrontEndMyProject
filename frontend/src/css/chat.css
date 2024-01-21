@@ -1,9 +1,27 @@
-.chat{
+
+.formChat{
+    display:flex;
     position: fixed;
-    bottom: 20px;
-    width: 78%;
+    bottom: 0;
+    width: 80%;
+    height: 60px;
+    background-color:#f0f2f5 ;
+    align-items: center;
+}
+.chat{
+    width: 95%;
     border: 1px solid #DDD;
+}
+.chatIcon{
+    font-size: 30px;
+    margin-left: 5px;
+    margin-bottom: 9px;
+    color: #9AD0C2;
 }
 .cardChat{
     display: flex;
+    position: fixed;
+    border: 1px solid #DDD  ;
+    width: 982px;
+    height: 600px;
 }

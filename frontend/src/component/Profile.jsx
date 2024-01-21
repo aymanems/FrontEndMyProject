@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 
-function Profile(props) {
+export default function Profile(props) {
   const [profileImage, setProfileImage] = useState(null);
   const [formPass, setFormPass] = useState({
     currentPassword: '',
@@ -79,31 +79,32 @@ function Profile(props) {
 
   const changePassword= async (e)=>{
     e.preventDefault()
-    ajouterNotification()
-
+    
     if (formPass.newPassword.trim() && formPass.currentPassword.trim() && confPass==formPass.newPassword) {
       const response=await axios.post(`http://127.0.0.1:8000/api/student/profile/changePass/${id}`,formPass)
       console.log(response.data.message);
       props.setMessageArrived(true)
       localStorage.setItem('messageArrived','true')
+      ajouterNotification()
       
       
       setFormPass({
         currentPassword: '',
         newPassword: '',
       });
+      setConfPass('')
     }else{
       handelPass(e)
     }
   }
 
   const ajouterNotification=async()=>{
-    const response =await axios.post(`http://127.0.0.1:8000/api/notifications/store`,{
+    const response =await axios.post(`http://127.0.0.1:8000/api/notifications/store/${id}`,{
       'title':'Mot de passe',
       'content':'Le mot de passe a été changé',
       'read':'0'
     })
-    console.log(response.data);
+    console.log(response.data.message);
   }
 
   const handelPass=(e)=>{
@@ -205,4 +206,3 @@ return (
   )
 }
 
-export default Profile

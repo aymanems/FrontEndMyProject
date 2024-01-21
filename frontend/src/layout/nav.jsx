@@ -146,21 +146,12 @@ function Nav() {
               </ul>
             </div>
   
-            <div className="buttom-content">
                 <li className="">
-                    <button className='lien' onClick={Logout}>
+                    <button className='lienButton lien' onClick={Logout}>
                     <i className='bx bx-log-out icon'></i>
                     <span className="text nav-text">Logout</span>
                     </button>
                 </li>
-                <li>
-          {/* */}
-          </li>
-  
-  
-  
-                
-            </div>
           </div>
          </nav>
      </container>

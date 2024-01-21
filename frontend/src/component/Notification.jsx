@@ -7,10 +7,19 @@ function Notification(props) {
   props.setMessageArrived(false)
   const [notifications,setNotifications]=useState([])
 
-  useEffect(async()=>{
-    const response=await axios.get('http://127.0.0.1:8000/api/notifications')
-    setNotifications(response.data);
-  },[])
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/notifications');
+        setNotifications(response.data);
+      } catch (error) {
+        console.error('Erreur lors de la récupération des notifications', error);
+      }
+    };
+
+    fetchNotifications();
+  }, []);
+
 
 
   const markAsRead = async (notificationId) => {
