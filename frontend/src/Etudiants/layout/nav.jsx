@@ -1,12 +1,11 @@
 import React, {  useEffect, useRef, useState } from 'react'
-import '../css/nav.css'
-import'../css/page.css'
+import './nav.css'
+import'./page.css'
 import { Link, useNavigate,Route,Routes  } from 'react-router-dom'
-import Profile from '../component/Profile';
-import Notification from './../component/Notification';
-import Personnelle from './../component/Personnelle';
-import Home from '../component/Home';
-import Chat from './../component/Chat';
+import Profile from '../Profile/Profile';
+import Notification from '../Notification/Notification';
+import Home from '../Home/Home';
+import Chat from '../Chat/Chat';
 
 function Nav() {
 
@@ -56,18 +55,7 @@ function Nav() {
 
   return (
   <div>
-        <nav className="navbar">
-        <div className="navbar-right">
-          <img src="/image/logo.jpg" alt="Logo"  className="navbar-logo" />
-        </div>
-          <div className="navbar-container">
-            <div  iv className="navbar-left">
-              <Link className='btnHover' to="/page">Home</Link>
-              <Link className='btnHover' to="/about">About</Link>
-              <Link className='btnHover' to="/contact">Contact</Link>
-            </div>
-          </div>
-        </nav>
+       
 
 
 
@@ -91,10 +79,10 @@ function Nav() {
           </header>
   
           <div className="menu-bar">
-            <div className="menu" >
-              <li className="search-box" >
+            <div className="menu">
+              <li className="search-box">
               <i className='bx bx-search icon'></i>
-                  <input type="search" placeholder='Search...' name="" id="" />
+                  <input type="search" placeholder='Search...'/>
               </li>
               <ul className="menu-links">
   
@@ -120,12 +108,7 @@ function Nav() {
                   </div>
                 </li>
 
-                <li className="">
-                  <div className='lien' onClick={()=>{setSection('personnelle')}}>
-                  <i className='bx bxs-file-find icon'></i>
-                  <span className="text nav-text">Les I personnelle</span>
-                  </div>
-                </li>
+               
 
                 <li className="">
                   <div className='lien' onClick={()=>{setSection('Profile')}}>
@@ -177,11 +160,7 @@ function Nav() {
         ) : null} 
 
 
-        {section === 'personnelle'  ? (
-          <div className='content'>
-            <Personnelle />
-          </div>
-        ) : null} 
+       
 
 
         {section === 'Notification'? (

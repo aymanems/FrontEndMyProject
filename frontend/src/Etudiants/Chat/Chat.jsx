@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/chat.css'
+import './chat.css'
 function Chat() {
     const handleMessage=(e)=>{
         e.preventDefault()
@@ -8,11 +8,7 @@ function Chat() {
     <div className='cardChat'>
     
     <div className=''>
-    <Stack sx={{
-      width:'100px',
-      height:'100px',
-      border:'1px solid black'
-    }}>aaaa</Stack>
+  
     </div>
 
 

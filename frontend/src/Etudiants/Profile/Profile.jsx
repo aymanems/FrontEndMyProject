@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Nav from '../layout/nav'
 import axios from 'axios'
-import '../css/profile.css'
+import './profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 

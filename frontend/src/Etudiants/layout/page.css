@@ -149,7 +149,6 @@ color: var(--sidebar-color);
 }
 
 .content{
-    margin-top: 40px;
     margin-left:125px;
 }
 
@@ -170,7 +169,6 @@ color: var(--sidebar-color);
     opacity: 0;
 } 
 .content{
-margin-top: 40px;
 margin-left:5px;
 }
 

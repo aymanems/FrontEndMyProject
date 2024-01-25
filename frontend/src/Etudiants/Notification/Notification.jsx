@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import '../css/notification.css'
+import './notification.css'
 
 function Notification(props) {
   localStorage.removeItem('messageArrived')

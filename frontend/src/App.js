@@ -1,11 +1,10 @@
 import React from 'react'
-import Nav from './layout/nav';
+import Nav from './Etudiants/layout/nav';
 import './App.css'
-import Profile from './component/Profile';
+import Profile from './Etudiants/Profile/Profile';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Login from './component/Login';
-import About from './component/About';
-import Contact from './component/Contact';
+import Contact from './Etudiants/Contact/Contact';
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
     <Routes>
       <Route path='/' element={<Login />} />
       <Route path='/page' element={<Nav />} />
-      <Route path='/about' element={<About />} />
       <Route path='/contact' element={<Contact />} />
 
     </Routes>

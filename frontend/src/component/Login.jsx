@@ -30,6 +30,7 @@ const Login = () => {
           'email':email,
           'password':password
         }) 
+        console.log(response.message);
         if (response.data.message=='true') 
         {
           //S'il est authentifié, je le mets à true
